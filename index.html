@@ -1,11 +1,187 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulário de Matrícula</title>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulário de Matrícula</title>
+  </head>
+  <body>
+    <section class="forms">
+      <div class="head">
+        <div class="go-back">
+          <img src="./assets/icons/arrow-left-02.svg" alt="Voltar" />
+          <p>Voltar</p>
+        </div>
+
+        <header>
+          <h2>Formulário de Matrícula</h2>
+          <p>
+            Preencha os dados abaixo para matricular seu filho na escola de
+            educação infantil Estrelas do Amanhã.
+          </p>
+        </header>
+      </div>
+
+      <fieldset id="child-info">
+        <legend>Informações da criança</legend>
+        
+        <div class="form-control">
+          <label for="name">Nome Completo</label>
+          <input type="text" name="name" placeholder="Ex.: Maria Luiza Alves" />
+          <span></span>
+        </div>
+
+        <div class="form-control">
+          <label for="birthday">Data de nascimento</label>
+          <input type="date" name="birthday" placeholder="06/05/2019" />
+          <span></span>
+        </div>
+
+        <div class="form-control">
+          <label for="gender">Sexo</label>
+          <select name="gender">
+            <option value="feminino"></option>
+            <option value="masculino"></option>
+          </select>
+
+          <span></span>
+        </div>
+
+        <div class="form-control">
+          <label for="medical-info"></label>
+          <textarea
+            name="medical-info"
+            placeholder="Ex.: Tem alergia a glúten."
+          ></textarea>
+          <span></span>
+        </div>
+
+        <div class="form-control">
+          <label for="docs">Certidão de Nascimento</label>
+          <input type="file" name="docs" />
+          <span></span>
+        </div>
+      </fieldset>
+
+      <fieldset id="home-info">
+        <legend>Endereço residencial</legend>
+
+        <div class="form-control">
+          <label for="cep">CEP</label>
+          <input type="text" name="cep" placeholder="01234-567" />
+          <span></span>
+        </div>
+
+        <div class="address">
+          <div class="form-control">
+            <label for="street">Rua</label>
+            <input type="text" name="street" placeholder="Rua das Flores" />
+            <span></span>
+          </div>
+
+          <div class="form-control">
+            <label for="number">Número</label>
+            <input type="number" name="number" placeholder="123" />
+            <span></span>
+          </div>
+        </div>
+
+        <div class="city-state">
+          <div class="form-control">
+            <label for="city">Cidade</label>
+            <input type="text" name="city" placeholder="São Paulo" />
+            <span></span>
+          </div>
+
+          <div class="form-control">
+            <label for="state">Estado</label>
+            <input type="text" name="state" placeholder="SP" />
+            <span></span>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset id="guardian-info">
+        <legend>Informações do responsável</legend>
+
+        <div class="form-control">
+          <label for="guardian-name">Nome do responsável</label>
+          <input
+            type="text"
+            name="guardian-name"
+            placeholder="Ex.: Miguel Roberto Alves"
+          />
+          <span>Principal responsável legal e contato de emergência</span>
+        </div>
+
+        <div class="form-control">
+          <label for="phone">Telefone</label>
+          <input type="tel" name="phone" placeholder="(10) 9 8765-4321" />
+          <span></span>
+        </div>
+
+        <div class="form-control">
+          <label for="email">E-mail</label>
+          <input
+            type="email"
+            name="email"
+            placeholder="papailegal123@mail.com"
+          />
+          <span></span>
+        </div>
+      </fieldset>
+
+      <fieldset id="registration">
+        <legend>Opções de matrícula</legend>
+        <div class="form-control">
+          <label for="shift">Selecione o turno de estudo</label>
+          <input type="radio" name="shift" id="morning" />
+          <input type="radio" name="shift" id="afternoon" />
+          <span></span>
+        </div>
+
+        <div class="form-control">
+          <label for="sport">Em qual esporte você gostaria de inscrever seu filho?</label>
+          <input type="radio" name="sport" id="soccer">
+          <input type="radio" name="sport" id="basketball">
+          <input type="radio" name="sport" id="swiming">
+          <input type="radio" name="sport" id="yoga">
+          <input type="radio" name="sport" id="voleyball">
+          <input type="radio" name="sport" id="boxing">
+        </div>
+      </fieldset>
+
+      <div class="checkbox">
+        <input type="checkbox" name="declaration" placeholder="Declaro que li e concordo com os Termos e Condições e com a Política de Privacidade da escola Estrela do Amanhã. ">
+        <label for="declaration">Declaro que li e concordo com os <span>Termos e Condições</span> e com a <span>Política de Privacidade</span> da escola Estrela do Amanhã.</label>
+      </div>
+
+      <div id="buttons">
+        <button>Salvar respostas</button>
+
+        <button>Fazer matrícula</button>
+      </div>
+    </section>
+
+    <section class="tomorrow-stars">
+      <header>
+        <div class="logo">
+          <img src="./assets/icons/stars.svg" alt="Estrelas do Amanhã" />
+          <h3>Estrelas do Amanhã</h3>
+        </div>
+
+        <h1>Porque cada momento de <span>aprendizado</span> conta</h1>
+
+        <p>
+          Inscreva seu filho em nossa escola e veja-o florescer em um ambiente
+          acolhedor, seguro e estimulante.
+        </p>
+      </header>
+
+      <img
+        src="./assets/images/illustration.svg"
+        alt="Ilustração de uma professora sentada com quatro crianças"
+      />
+    </section>
+  </body>
 </html>
