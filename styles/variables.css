@@ -1,0 +1,36 @@
+:root {
+  /* COLORS */
+  /* Brand */
+  --brand-light: hsla(18, 91%, 61%, 1);
+  --brand-mid: hsla(16, 90%, 53%, 1);
+  --brand-dark: hsla(11, 85%, 48%, 1);
+
+  /* Text */
+  --text-primary: hsla(12, 6%, 15%, 1);
+  --text-secondary: hsla(33, 5%, 32%, 1);
+  --text-tertiary: hsla(30, 6%, 53%, 1);
+  --text-highlight: hsla(11, 85%, 48%, 1);
+
+  /* Surface */
+  --surface-primary: hsla(0, 0%, 100%, 1);
+  --surface-secondary: hsla(26, 95%, 92%, 1);
+  --surface-disabled: hsla(20, 6%, 90%, 1);
+
+  /* Stroke */
+  --stroke-default: hsla(24, 6%, 83%, 1);
+  --stroke-highlight: hsla(16, 90%, 53%, 1);
+
+  /* Semantic */
+  --semantic-error: hsla(0, 72%, 51%, 1);
+
+  /* TYPOGRAPHY */
+  --font-family: Poppins, sans-serif;
+
+  --heading1: 600 2.5rem/125% var(--font-family);
+  --heading2: 600 1.5rem/125% var(--font-family);
+  --heading3: 600 1rem/125% var(--font-family);
+
+  --text: 500 1rem/150% var(--font-family);
+  --text-md: 400 1rem/150% var(--font-family);
+  --text-sm: 400 0.875rem/140% var(--font-family);
+}

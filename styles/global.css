@@ -1,0 +1,430 @@
+@import url(variables.css);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+
+  font: var(--text-md);
+  color: var(--text-secondary);
+}
+
+.forms {
+  background-color: var(--surface-primary);
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 4rem;
+  gap: 3rem;
+
+  .head {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .go-back {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      h2 {
+        font: var(--heading2);
+        color: var(--text-primary);
+      }
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    fieldset {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+
+      border: none;
+
+      legend {
+        font: var(--heading3);
+        margin-bottom: 1.5rem;
+      }
+
+      .form-control {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+
+        label {
+          font: var(--text-sm);
+        }
+
+        input,
+        textarea,
+        select {
+          appearance: none;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          width: 100%;
+
+          background-color: var(--surface-primary);
+          border: 2px solid var(--stroke-default);
+          border-radius: 0.5rem;
+
+          display: flex;
+          align-items: center;
+          padding: 0.75rem 1rem;
+          gap: 0.5rem;
+
+          font: var(--text-md);
+          color: var(--text-primary);
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus,
+        input[type='date']:focus-within {
+          outline: 0.25rem solid var(--surface-secondary);
+          border: 0.125rem solid var(--stroke-highlight);
+          outline-offset: 0.1px;
+        }
+
+        input[type='date'] {
+          position: relative;
+
+          &::-webkit-calendar-picker-indicator {
+            width: 1.25rem;
+            height: 1.25rem;
+            position: absolute;
+            background-image: url(../assets/icons/calendar-03.svg);
+            background-position: center;
+            background-size: contain;
+            right: 1rem;
+          }
+        }
+
+        input:invalid {
+          border: 0.125rem solid var(--semantic-error);
+        }
+
+        input:not(:focus):valid + .error {
+          display: none;
+        }
+
+        select {
+          background-image: url(../assets/icons/arrow-down-01.svg);
+          background-repeat: no-repeat;
+          background-position: calc(100% - 1rem);
+        }
+
+        .dropzone {
+          border: 1px dashed var(--stroke-default);
+          border-radius: 0.25rem;
+
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 1.5rem 1rem;
+          gap: 0.5rem;
+
+          position: relative;
+
+          input {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            inset: 0;
+          }
+
+          svg {
+            width: 3rem;
+            height: 3rem;
+          }
+
+          p {
+            color: var(--text-tertiary);
+          }
+
+          &:hover,
+          &:has(input:focus) {
+            border-width: 2px;
+            border-color: var(--stroke-highlight);
+            background-color: var(--surface-secondary);
+
+            svg path {
+              stroke: var(--stroke-highlight);
+            }
+
+            p {
+              color: var(--text-highlight);
+            }
+          }
+        }
+
+        span {
+          font: var(--text-sm);
+          color: var(--text-tertiary);
+        }
+
+        &:has([disabled]) {
+          opacity: 0.5;
+
+          input {
+            background-color: var(--surface-disabled);
+          }
+        }
+
+        .error {
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+
+          span {
+            color: var(--semantic-error);
+          }
+        }
+
+        .radio-group {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1rem;
+
+          .radio-wrapper {
+            flex: 1;
+            min-width: 13rem;
+
+            position: relative;
+
+            input,
+            input:focus,
+            input:hover {
+              all: unset;
+              position: absolute;
+              inset: 0;
+            }
+
+            background-color: var(--surface-primary);
+            border: 1px solid var(--stroke-default);
+            border-radius: 0.5rem;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem 1rem;
+            gap: 0.5rem;
+
+            .radio-image {
+              border: 1.5px solid var(--stroke-default);
+              border-radius: 50%;
+              width: 1.5rem;
+              height: 1.5rem;
+
+              position: absolute;
+              top: 0.5rem;
+              left: 0.5rem;
+            }
+
+            &:hover,
+            &:focus-within {
+              border-color: var(--stroke-highlight);
+
+              .radio-image {
+                border-color: var(--stroke-highlight);
+              }
+            }
+
+            &:has(:checked) {
+              border: 2px solid var(--stroke-highlight);
+
+              .radio-image {
+                background-color: var(--stroke-highlight);
+                background-image: url(../assets/icons/check.svg);
+                background-repeat: no-repeat;
+                background-position: center;
+              }
+            }
+          }
+        }
+
+        &:has(label + .radio-group) {
+          gap: 1rem;
+        }
+      }
+
+      .address {
+        display: flex;
+        gap: 1.25rem;
+
+        .form-control:has(input#street),
+        .form-control:has(input#city) {
+          flex: 1;
+        }
+
+        .form-control:has(input#number),
+        .form-control:has(input#state) {
+          width: 11rem;
+        }
+      }
+    }
+
+    .checkbox {
+      display: flex;
+      gap: 0.75rem;
+
+      position: relative;
+
+      input,
+      input:focus,
+      input:hover {
+        all: unset;
+        position: absolute;
+        inset: 0;
+      }
+
+      .checkbox-image {
+        border: 1.5px solid var(--stroke-default);
+        border-radius: 0.25rem;
+        align-self: center;
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+
+      &:hover,
+      &:focus-within {
+        .checkbox-image {
+          border-color: var(--stroke-highlight);
+        }
+      }
+
+      &:has(:checked) {
+        .checkbox-image {
+          background-color: var(--stroke-highlight);
+          background-image: url(../assets/icons/check.svg);
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+
+      label {
+        font: var(--text-md);
+        color: var(--text-secondary);
+        width: 100%;
+
+        span {
+          font: var(--text);
+          color: var(--text-highlight);
+        }
+
+        &:hover {
+          input {
+            border-color: var(--stroke-highlight);
+          }
+        }
+      }
+    }
+
+    #buttons {
+      display: flex;
+      justify-content: flex-end;
+      padding-top: 1rem;
+      gap: 1rem;
+
+      button {
+        border-radius: 0.5rem;
+        font: var(--text);
+        cursor: pointer;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 7.5rem;
+        padding: 0.75rem 1.5rem;
+        gap: 0.5rem;
+
+        &.primary {
+          background-color: var(--brand-dark);
+          color: var(--surface-primary);
+          border: none;
+
+          &:hover,
+          &:focus-within {
+            background-color: var(--brand-mid);
+
+            outline: 0.25rem solid var(--surface-secondary);
+            outline-offset: 0.1px;
+          }
+        }
+
+        &.secondary {
+          border: 1px solid var(--text-highlight);
+          background-color: var(--surface-primary);
+          color: var(--text-highlight);
+
+          &:hover,
+          &:focus-within {
+            border-color: var(--brand-light);
+            color: var(--brand-light);
+
+            outline: 0.25rem solid var(--surface-secondary);
+            outline-offset: 0.1px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.tomorrow-stars {
+  background-color: var(--surface-secondary);
+  width: 39rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem;
+  gap: 2rem;
+
+  header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      h3 {
+        font: 400 1.25rem/100% Schoolbell;
+        color: var(--text-primary);
+      }
+    }
+
+    h1 {
+      font: var(--heading1);
+      color: var(--text-primary);
+
+      span {
+        color: var(--text-highlight);
+      }
+    }
+  }
+}
